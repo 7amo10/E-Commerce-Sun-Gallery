@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-brand-light text-brand-dark antialiased;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    background-size: 200% 200%;
+    animation: gradient-animation 15s ease infinite;
+  }
+  :root {
+    color-scheme: light;
+  }
+  [dir="rtl"] body {
+    @apply font-arabic;
+  }
+  [dir="ltr"] body {
+    @apply font-english;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #d2b48c;
+    color: #1f2937;
+  }
+
+  /* Links */
+  a {
+    @apply text-brand-primary hover:text-brand-pink transition-colors;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold shadow-sm transition-all duration-200 ease-in-out transform hover:-translate-y-px hover:scale-[1.02];
+  }
+  .btn-primary {
+    @apply btn bg-brand-primary/90 text-gray-800 ring-1 ring-brand-primary/30 hover:bg-brand-primary/100 hover:shadow-lg;
+  }
+  .btn-accent {
+    @apply btn bg-brand-accent text-gray-900 ring-1 ring-yellow-400/50 hover:brightness-90 hover:shadow-lg;
+  }
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-sm text-gray-700 shadow ring-1 ring-black/5 backdrop-blur;
+  }
+
+  /* Form Styles */
+  .form-control {
+    @apply flex flex-col gap-1;
+  }
+  .form-control label {
+    @apply text-sm font-medium text-gray-700;
+  }
+  .form-control input,
+  .form-control textarea {
+    @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm transition-colors focus:border-brand-primary focus:ring-1 focus:ring-brand-primary/80;
+  }
+  .file-input {
+    @apply block w-full text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-brand-primary/20 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-brand-dark hover:file:bg-brand-primary/30;
+  }
+
+  /* Radix Dropdown Styles */
+  .dropdown-menu-content {
+    @apply min-w-[220px] bg-white rounded-lg p-2 shadow-lg ring-1 ring-black/5;
+  }
+  .dropdown-menu-item {
+    @apply text-sm text-gray-700 rounded-md px-3 py-2 flex items-center cursor-pointer hover:bg-brand-cream/60 focus:bg-brand-cream/60 focus:outline-none;
+  }
+}
+
+/* RTL helpers using logical properties */
+[dir="rtl"] .ms-4 {
+  margin-inline-start: 1rem;
+}
+[dir="rtl"] .me-4 {
+  margin-inline-end: 1rem;
+}
+[dir="rtl"] .ps-4 {
+  padding-inline-start: 1rem;
+}
+[dir="rtl"] .pe-4 {
+  padding-inline-end: 1rem;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Decorative backgrounds */
+/* .hero-pattern has been removed as the new animated background replaces it */

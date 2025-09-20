@@ -1,0 +1,12 @@
+<app-loading-spinner *ngIf="loadingService.isLoading()"></app-loading-spinner>
+<div class="min-h-screen flex flex-col">
+  <app-header></app-header>
+  <main class="flex-1 pt-20">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="bg-white/80 border-t border-black/5">
+    <div class="container py-6 text-center text-sm text-gray-600">
+      <p>© {{ year }} معرض الشمس - جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+</div>
